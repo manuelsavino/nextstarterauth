@@ -9,7 +9,7 @@ const Index = ({ user }) => {
       </Head>
       {user && (
         <a
-          className='py-2 px-4 text-white rounded bg-red-500 text-white'
+          className='py-2 px-4 text-white rounded bg-red-500'
           href='/api/logout'
         >
           Logout
@@ -17,7 +17,7 @@ const Index = ({ user }) => {
       )}
       {!user && (
         <a
-          className='py-2 px-4 text-white rounded bg-blue-500 text-white'
+          className='py-2 px-4 text-white rounded bg-blue-500'
           href='/api/login'
         >
           Login
