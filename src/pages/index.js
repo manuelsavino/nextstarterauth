@@ -29,10 +29,19 @@ const Index = ({ user }) => {
 };
 
 export async function getServerSideProps(context) {
-  const session = await auth0.getSession(context.req);
+  const { user } = (await auth0.getSession(context.req)) || {};
+
+  if (!user) {
+    context.res.writeHead(302, {
+      Location: '/api/login',
+    });
+    context.res.end();
+    return { props: {} };
+  }
+
   return {
     props: {
-      user: session?.user || null,
+      user: user || null,
     },
   };
 }
