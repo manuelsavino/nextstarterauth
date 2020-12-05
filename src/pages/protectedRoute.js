@@ -15,7 +15,7 @@ const ProtectedRoute = ({ user }) => {
           Logout
         </a>
       )}
-      <h1 className='text-7xl pt-5'>Protected Route</h1>
+      <h1 className='text-7xl pt-5 text-blue-500'>Protected Route</h1>
     </div>
   );
 };
