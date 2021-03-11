@@ -1,6 +1,7 @@
-import auth0 from './utils/auth0';
+import { withApiAuthRequired, getSession } from '@auth0/nextjs-auth0';
 
-export default auth0.requireAuthentication(async function handler(req, res) {
+export default withApiAuthRequired(async (req, res) => {
+  const session = getSession(req, res);
   return new Promise((resolve) => {
     if (req.method !== 'GET') {
       res.status(405).json({ msg: 'Method not allowed' });
